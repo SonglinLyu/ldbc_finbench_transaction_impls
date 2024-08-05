@@ -556,6 +556,39 @@ public class TuGraphTransactionDb extends Db {
                 e.printStackTrace();
             }
         }
+
+        // @Override
+        // public void executeOperation(SimpleRead2 sr2, TuGraphDbConnectionState dbConnectionState,
+        //         ResultReporter resultReporter) throws DbException {
+        //     try {
+        //         TuGraphDbRpcClient client = dbConnectionState.popClient();
+        //         String cypher = "CALL plugin.cpp.tsr2({ id:%d, startTime: %d, endTime: %d});";
+        //         long startTime = sr2.getStartTime().getTime();
+        //         long endTime = sr2.getEndTime().getTime();
+        //         cypher = String.format(
+        //                 cypher,
+        //                 sr2.getId(), startTime, endTime);
+        //         String graph = "default";
+        //         String res = client.callCypher(cypher, graph, 0);
+        //         ArrayList<SimpleRead2Result> results = new ArrayList<>();
+        //         JSONArray array = JSONObject.parseArray(res);
+        //         for (int i = 0; i < array.size(); i++) {
+        //             JSONObject ob = array.getJSONObject(i);
+        //             SimpleRead2Result result = new SimpleRead2Result(
+        //                     ob.getDoubleValue("sumEdge1Amount"),
+        //                     ob.getDoubleValue("maxEdge1Amount"),
+        //                     ob.getLongValue("numEdge1"),
+        //                     ob.getDoubleValue("sumEdge2Amount"),
+        //                     ob.getDoubleValue("maxEdge2Amount"),
+        //                     ob.getLongValue("numEdge2"));
+        //             results.add(result);
+        //         }
+        //         resultReporter.report(results.size(), results, sr2);
+        //         dbConnectionState.pushClient(client);
+        //     } catch (IOException e) {
+        //         e.printStackTrace();
+        //     }
+        // }
     }
 
     public static class SimpleRead3Handler implements OperationHandler<SimpleRead3, TuGraphDbConnectionState> {
